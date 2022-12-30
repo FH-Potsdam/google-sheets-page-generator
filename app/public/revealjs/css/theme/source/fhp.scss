@@ -1,0 +1,193 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(./fonts/fhp/fhp.css);
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+$headingColor: #222;
+
+$mainFontSize: 42px;
+$mainFont: 'FHPSunOffice', Helvetica, Arial, sans-serif;
+$headingFont: 'FHPSunOffice', Helvetica, Arial, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+.reveal section {
+  padding:35px 50px;
+  box-sizing: border-box;
+  text-align:left;
+  &.cover-image{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &.fhp-dark-background{
+    color:white;
+    h1,h2,h3,p,.fhp-slide-number,.fhp-dep-text,.source {
+      color: white;
+    }
+  }
+  h1, h2, h3, p{
+    text-align:left;
+  }
+  h3 {
+    padding:0;
+    margin:0;
+    font-size: 1em;
+    font-weight: normal;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  p, ul {
+    padding-top:40px;
+  }
+  p {
+    max-width: 800px;
+  }
+  pre {
+    width: 100%;
+    code {
+      padding: 20px;
+    }
+  }
+}
+
+section.intro, section.outro {
+  background: linear-gradient(104.86deg, #0A1257 1.67%, #059AD9 100%);
+  h1, h2, p{
+    color: white;
+    text-align:left;
+  }
+  h1 {
+    font-size: 2.5em;
+  }
+  h2 {
+    font-size: 1em;
+    font-weight:normal;
+    padding:0;
+    margin:0;
+  }
+  p {
+    font-size: 1em;
+    padding-top:20px;
+  }
+}
+
+section.section-title{
+  background: linear-gradient(104.86deg, #0A1257 1.67%, #059AD9 100%);
+}
+
+.fhp-slide-number{
+  position: absolute;
+  bottom:15px;
+  right: 50px;
+  font-size: 0.5em;
+}
+
+.fhp-dep-text {
+  position: absolute;
+  bottom:15px;
+  left: 50px;
+  font-size: 0.5em;
+}
+
+.source {
+  position: absolute;
+  bottom: 70px;
+  left: 50px;
+  text-align: center;
+  font-size:0.5em;
+  font-style: italic;
+  text-align: left;
+}
+
+.img-full{
+  width:100%;
+  height: auto;
+}
+
+.img-row {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom:40px;
+  div {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.logo {
+  background-image: url(./images/fhp_logo-white.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 400px;
+  height: 80px;
+  background-position: left bottom;
+  display: block;
+  &.pos-bl{
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+  }
+}
+
+.reveal .slides, .reveal section {
+  width: 100% !important;
+  height: 100vh !important;
+  margin:0 !important;
+}
+
+.v-center{
+  display:flex;
+  align-items:center;
+  height:100%;
+}
+
+// PRINTING
+
+html.print-pdf .reveal .slides section{
+  padding: 50px !important;
+  left:0 !important;
+  top:0 !important;
+}

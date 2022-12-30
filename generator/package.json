@@ -9,7 +9,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
     "dotenv": "^10.0.0",
-    "google-spreadsheet": "^3.1.15"
+    "google-spreadsheet": "^3.1.15",
+    "googleapis": "^39.2.0",
+    "ncp": "^2.0.0"
   }
 }

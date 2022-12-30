@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>reveal.js</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/fhp.css">
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section class="intro" data-background-color="black">
+					<div class="v-center"><div>
+						<h2>Parametric Design</h2>
+						<h1>#01 – Einführung</h1>
+						<p>
+							Prof. Dr. Sebastian Meier
+						</p>
+					</div></div>
+					<div class="logo pos-bl"></div>
+				</section>
+				<section>
+					<h1>Full size image</h1>
+				</section>
+				<section style="background-image: url(dist/theme/images/test.png);" class="cover-image fhp-dark-background">
+					<div class="v-center"><div>
+						<h1>Full size image</h1>
+					</div></div>
+				</section>
+				<section class="section-title fhp-dark-background">
+					<div class="v-center"><div>
+						<h1>Full size image</h1>
+					</div></div>
+				</section>
+				<section data-markdown="dist/theme/markdown/test.md" data-separator="^\r?\n\r?\n\r?\n" data-vertical="^\r?\n\r?\n" data-notes="^Note:">
+				</section>
+				<section class="outro" data-background-color="black">
+					<div class="v-center"><div>
+						<h2>WiSe 2021/22 – Parametric Design</h2>
+						<h1>#01 – Einführung</h1>
+						<p>
+							Prof. Dr. Sebastian Meier<br /><br />
+							sebastian.meier@fh-potsdam.de<br />
+							+49 331 580 4433<br />
+							@seb_meier
+						</p>
+					</div></div>
+					<div class="logo pos-bl"></div>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			const skyline = 'Parametric Design – Einführung';
+			const department = 'Fachhochschule Potsdam | University of Applied Sciences';
+			Reveal.initialize({
+				hash: true,
+				controls: false,
+				progress: false,
+				slideNumber: false,
+				history: true,
+				transition: 'none',
+				center: false,
+				disableLayout: false,
+				navigationMode: 'linear',
+				backgroundTransition: 'none',
+				zoom: false,
+				width: '1920',
+  			height: '1080',
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			}).then(() => {
+				const slides = document.querySelectorAll('.reveal .slides section');
+				slides.forEach((slide, si) => {
+					if (si > 0 && si < slides.length - 1) {
+						const h3 = document.createElement('h3');
+						h3.innerHTML = skyline;
+						slide.prepend(h3);
+						const slideNumber = document.createElement('div');
+						slideNumber.innerHTML = (si + 1) + '/' + slides.length;
+						slideNumber.className = 'fhp-slide-number';
+						slide.append(slideNumber);
+						const depText = document.createElement('div');
+						depText.innerHTML = department;
+						depText.className = 'fhp-dep-text';
+						slide.append(depText);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

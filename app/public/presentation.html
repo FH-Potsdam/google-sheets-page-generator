@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>reveal.js</title>
+		<link rel="stylesheet" href="/revealjs/dist/reset.css">
+		<link rel="stylesheet" href="/revealjs/dist/reveal.css">
+		<link rel="stylesheet" href="/revealjs/dist/theme/fhp.css">
+		<link rel="stylesheet" href="/revealjs/plugin/highlight/monokai.css">
+		<style>
+      .cols{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .cols>div{
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+      .cols>div>div{
+        height:500px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain; 
+      }
+      .cols-1>div{ width: 100%; }
+      .cols-2>div{ width: 45%; }
+      .cols-3>div{ width: 29%; }
+      .cols-4>div{ width: 22%; }
+
+			.columns-2 {
+				column-count: 2;
+				column-gap: 40px;
+			}
+      .columns-3 {
+				column-count: 3;
+				column-gap: 40px;
+			}
+
+			.reveal section p.wide-text {
+				width: 100%;
+				max-width: 100%;
+			}
+
+			.reveal section blockquote {
+				box-sizing: border-box;
+				margin:50px 0 0 0;
+				background: rgba(0,0,0,0.05);
+				padding:20px;
+				width: 100%;
+        border-left: 20px solid rgba(0,0,0,0.2);
+			}
+
+			.reveal section blockquote p{
+				max-width: 100%;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+
+			.reveal iframe {
+				width:100%;
+				max-width:100%;
+				height: 600px;
+				margin:0;
+				padding:0;
+				border:none;
+			}
+
+      .reveal section .source {
+        bottom:50px;
+      }
+
+      .image-filler{
+        width:100%;
+        height: 70%;
+        background-size:cover;
+        background-position:center;
+      }
+
+      .image-filler.center{
+        background-size:contain;
+        background-repeat: no-repeat;
+      }
+
+      .medium-text{
+        font-size:1.5em;
+      }
+
+      .reveal section img{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+      }
+
+      span.small {
+        font-size:0.75em;
+      }
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown="./data.md" data-separator="^\r?\n\r?\n\r?\n" data-vertical="^\r?\n\r?\n" data-notes="^Note:">
+			</div>
+		</div>
+
+		<script src="/revealjs/dist/reveal.js"></script>
+		<script src="/revealjs/plugin/notes/notes.js"></script>
+		<script src="/revealjs/plugin/markdown/markdown.js"></script>
+		<script src="/revealjs/plugin/highlight/highlight.js"></script>
+		<script>
+			const skyline = 'REPLACE WITH TITLE';
+			const department = 'Fachhochschule Potsdam | University of Applied Sciences';
+			Reveal.initialize({
+				hash: true,
+				controls: false,
+				progress: false,
+				slideNumber: false,
+				history: true,
+				transition: 'none',
+				center: false,
+				disableLayout: false,
+				navigationMode: 'linear',
+				backgroundTransition: 'none',
+				zoom: false,
+				width: 1920,
+  			height: 1080,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			}).then(() => {
+				const slides = document.querySelectorAll('.reveal .slides section');
+				slides.forEach((slide, si) => {
+					if (si > 0 && si < slides.length - 1) {
+						const h3 = document.createElement('h3');
+						h3.innerHTML = skyline;
+						slide.prepend(h3);
+						const slideNumber = document.createElement('div');
+						slideNumber.innerHTML = (si + 1) + '/' + slides.length;
+						slideNumber.className = 'fhp-slide-number';
+						slide.append(slideNumber);
+						const depText = document.createElement('div');
+						depText.innerHTML = department;
+						depText.className = 'fhp-dep-text';
+						slide.append(depText);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
